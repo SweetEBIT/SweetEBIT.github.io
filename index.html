@@ -24,6 +24,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             min-height: 100vh;
             font-family: 'Comic Neue', cursive;
             color: #00FF00;
@@ -33,24 +34,22 @@
         .crt-monitor {
             width: 90%;
             max-width: 1200px;
-            max-height: 90vh;
+            max-height: 80vh;
             background: #333;
             border: 20px solid #444;
             border-radius: 10px;
             padding: 15px;
             box-shadow: 0px 0px 20px rgba(0, 255, 0, 0.5);
-            overflow: hidden;
+            position: relative;
             display: flex;
             flex-direction: column;
-            position: relative;
+            justify-content: space-between;
         }
 
-        /* Scrollable screen */
+        /* Screen */
         .screen {
             background: #000;
             padding: 20px;
-            flex: 1;
-            overflow-y: auto;
             box-shadow: inset 0px 0px 10px rgba(0, 255, 0, 0.3);
             position: relative;
         }
@@ -74,7 +73,37 @@
             pointer-events: none;
         }
 
-        /* Monitor header */
+        /* Ticker section */
+        .ticker-section {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #111;
+            color: #FFD700;
+            font-size: 1.2em;
+            font-family: 'Press Start 2P', cursive;
+            padding: 5px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            z-index: 1000;
+        }
+
+        .ticker {
+            display: inline-block;
+            animation: ticker 20s linear infinite;
+        }
+
+        @keyframes ticker {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Header */
         header {
             display: flex;
             justify-content: space-between;
@@ -86,7 +115,7 @@
             text-transform: uppercase;
         }
 
-        /* Main content layout */
+        /* Content layout */
         .content {
             font-size: 1.2em;
             font-family: 'Comic Sans MS', cursive;
@@ -114,34 +143,37 @@
             padding-right: 5px;
         }
 
-        /* Footer ticker bar like Bloomberg */
-        footer {
+        /* Retro keyboard */
+        .keyboard {
+            width: 80%;
+            max-width: 1000px;
+            height: 80px;
+            background: #444;
+            margin-top: 20px;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .keyboard::before {
+            content: "";
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: #111;
-            color: #FFD700;
-            font-size: 1.2em;
-            font-family: 'Press Start 2P', cursive;
-            padding: 5px 0;
-            overflow: hidden;
-            white-space: nowrap;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 20px;
+            background: #666;
         }
 
-        /* Scrolling ticker */
-        .ticker {
-            display: inline-block;
-            animation: ticker 20s linear infinite;
-        }
-
-        @keyframes ticker {
-            0% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
+        .keyboard::after {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 2px;
+            background: #666;
         }
 
         /* Responsive styling */
@@ -163,7 +195,7 @@
                 font-size: 1em;
             }
 
-            footer {
+            .ticker-section {
                 font-size: 1em;
             }
         }
@@ -171,9 +203,16 @@
 </head>
 
 <body>
+    <!-- Ticker section -->
+    <div class="ticker-section">
+        <div class="ticker">
+            ⬆️  AAPL: 150.54  ⬇️  TSLA: 900.20  ⬆️  BTC: 47,000  ⬇️  ETH: 3,200  ⬆️  GBP/USD: 1.38  | Bloomberg Terminal Simulation | Contact: your.email@example.com | Available for opportunities in the finance industry
+        </div>
+    </div>
+
     <!-- CRT Monitor Frame -->
     <div class="crt-monitor">
-        <!-- Screen section with scroll and scanlines -->
+        <!-- Screen section -->
         <div class="screen">
             <!-- Header like a Bloomberg terminal -->
             <header>
@@ -185,6 +224,9 @@
             <div class="content">
                 <h2>About Me</h2>
                 <p>Financial professional with expertise in operations, data analysis, and control management, eager to contribute to the evolving financial landscape.</p>
+
+                <h2>Education</h2>
+                <p>Bachelor’s Degree in Finance - [Your University] - 2020</p>
 
                 <h2>Work Experience</h2>
                 <ul>
@@ -207,19 +249,12 @@
                     <li>Project Management</li>
                     <li>Python, Automation</li>
                 </ul>
-
-                <h2>Education</h2>
-                <p>Bachelor’s Degree in Finance - [Your University] - 2020</p>
             </div>
-
-            <!-- Footer with scrolling tickers -->
-            <footer>
-                <div class="ticker">
-                    ⬆️  AAPL: 150.54  ⬇️  TSLA: 900.20  ⬆️  BTC: 47,000  ⬇️  ETH: 3,200  ⬆️  GBP/USD: 1.38  | Bloomberg Terminal Simulation | Contact: your.email@example.com | Available for opportunities in the finance industry
-                </div>
-            </footer>
         </div>
     </div>
+
+    <!-- Retro keyboard below monitor -->
+    <div class="keyboard"></div>
 </body>
 
 </html>
