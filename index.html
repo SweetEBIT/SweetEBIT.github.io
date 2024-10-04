@@ -7,7 +7,7 @@
     <title>Joshua Haydn - Retro Bloomberg CV</title>
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <style>
@@ -26,7 +26,7 @@
             align-items: center;
             flex-direction: column;
             min-height: 100vh;
-            font-family: 'Comic Neue', cursive;
+            font-family: 'Press Start 2P', cursive;
             color: #00FF00;
         }
 
@@ -52,6 +52,7 @@
             padding: 20px;
             box-shadow: inset 0px 0px 10px rgba(0, 255, 0, 0.3);
             position: relative;
+            overflow: hidden; /* Ensure content stays inside the monitor */
         }
 
         /* Scanlines effect */
@@ -118,7 +119,7 @@
         /* Content layout */
         .content {
             font-size: 1.2em;
-            font-family: 'Comic Sans MS', cursive;
+            font-family: 'Press Start 2P', cursive;
             padding: 10px;
             color: #00FF00;
         }
@@ -145,35 +146,22 @@
 
         /* Retro keyboard */
         .keyboard {
-            width: 80%;
-            max-width: 1000px;
-            height: 80px;
-            background: #444;
+            width: 600px;
+            height: 100px;
+            background-image: url('https://i.imgur.com/fYFM4Dw.png');
+            background-size: cover;
             margin-top: 20px;
-            border-radius: 5px;
             position: relative;
         }
 
-        .keyboard::before {
-            content: "";
+        .keyboard-wire {
+            width: 3px;
+            height: 100px;
+            background-color: #666;
             position: absolute;
-            top: -20px;
+            top: -100px;
             left: 50%;
             transform: translateX(-50%);
-            width: 4px;
-            height: 20px;
-            background: #666;
-        }
-
-        .keyboard::after {
-            content: "";
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 200px;
-            height: 2px;
-            background: #666;
         }
 
         /* Responsive styling */
@@ -181,10 +169,6 @@
             .crt-monitor {
                 width: 100%;
                 max-height: 100vh;
-            }
-
-            body {
-                flex-direction: column;
             }
 
             h2 {
@@ -197,6 +181,15 @@
 
             .ticker-section {
                 font-size: 1em;
+            }
+
+            .keyboard {
+                width: 90%;
+                height: 80px;
+            }
+
+            .keyboard-wire {
+                height: 80px;
             }
         }
     </style>
@@ -254,7 +247,9 @@
     </div>
 
     <!-- Retro keyboard below monitor -->
-    <div class="keyboard"></div>
+    <div class="keyboard">
+        <div class="keyboard-wire"></div>
+    </div>
 </body>
 
 </html>
