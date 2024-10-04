@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joshua Haydn - Retro CV</title>
+    <title>Joshua Haydn - Retro Bloomberg CV</title>
 
     <!-- Include Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <style>
@@ -18,84 +18,141 @@
             box-sizing: border-box;
         }
 
-        /* Y2K-inspired background and font */
+        /* Full-page layout with CRT monitor frame */
         body {
-            background-color: black; /* Old terminal style */
-            font-family: 'Comic Neue', cursive; /* Y2K fonts */
-            color: #00FF00; /* Retro neon green */
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Comic Neue', cursive;
         }
 
-        /* Header styling */
+        /* CRT monitor frame */
+        .crt-monitor {
+            width: 90%;
+            max-width: 1200px;
+            height: 700px;
+            background: #333;
+            border: 20px solid #444;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0px 0px 20px rgba(0, 255, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            color: #00FF00;
+        }
+
+        /* TV-style screen with scanlines and slight noise */
+        .screen {
+            background: #000;
+            padding: 20px;
+            position: relative;
+            height: 100%;
+            overflow-y: scroll;
+            box-shadow: inset 0px 0px 10px rgba(0, 255, 0, 0.3);
+        }
+
+        /* Add scanlines effect */
+        .screen::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(255, 255, 255, 0.05) 0px,
+                rgba(255, 255, 255, 0.05) 2px,
+                transparent 3px,
+                transparent 4px
+            );
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        /* Monitor header with company name and retro text */
         header {
-            text-align: center;
-            padding: 20px;
-            background-color: #282828; /* Dark Bloomberg terminal-like background */
-            color: yellow;
-            font-family: "Papyrus", cursive;
+            display: flex;
+            justify-content: space-between;
+            background-color: #000;
+            padding: 10px;
+            color: #FFD700;
+            font-family: "Press Start 2P", cursive;
+            font-size: 1.5em;
+            text-transform: uppercase;
         }
 
-        header h1 {
-            font-size: 3em;
-            font-weight: bold;
-            text-shadow: 2px 2px 5px #FF00FF;
-        }
-
-        /* Add some retro GIF illustrations */
-        header img {
-            height: 100px;
-            margin: 10px;
-        }
-
-        /* Container for CV content */
-        .cv-container {
-            padding: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #101010;
-            border: 2px solid #00FF00;
-            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
-        }
-
-        .section {
-            margin-bottom: 20px;
-        }
-
-        .section h2 {
-            font-size: 2em;
-            text-decoration: underline;
-            color: #FF00FF; /* Bright Y2K colors */
-        }
-
-        .section p, .section ul {
+        /* Main content layout */
+        .content {
             font-size: 1.2em;
-            line-height: 1.8;
+            font-family: 'Comic Sans MS', cursive;
+            padding: 10px;
+            color: #00FF00;
+        }
+
+        h2 {
+            color: #FFD700;
+            font-family: 'Press Start 2P', cursive;
+            text-shadow: 0 0 5px #FF00FF;
+            font-size: 1.5em;
+            text-transform: uppercase;
+            border-bottom: 2px solid #FFD700;
             margin-bottom: 10px;
         }
 
         ul {
-            list-style: none;
+            list-style-type: none;
         }
 
         ul li::before {
-            content: "> ";
+            content: ">";
             color: yellow;
+            padding-right: 5px;
         }
 
-        /* Footer styling */
+        /* Footer ticker bar like Bloomberg */
         footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #282828;
-            color: #00FF00;
-            font-family: 'Comic Sans MS', cursive;
-            margin-top: 20px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #111;
+            color: #FFD700;
+            font-size: 1.2em;
+            font-family: 'Press Start 2P', cursive;
+            padding: 5px 0;
+            overflow: hidden;
+            white-space: nowrap;
         }
 
-        /* Add some animation for retro feel */
+        /* Scrolling ticker */
+        .ticker {
+            display: inline-block;
+            animation: ticker 20s linear infinite;
+        }
+
+        @keyframes ticker {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Retro blinking text effect */
         @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0; }
-            100% { opacity: 1; }
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
         }
 
         .blinking {
@@ -105,57 +162,55 @@
 </head>
 
 <body>
-    <!-- Retro Header with GIFs -->
-    <header>
-        <h1>Joshua Haydn - CV</h1>
-        <img src="https://media.giphy.com/media/XreQmk7ETCak0/giphy.gif" alt="Retro GIF">
-        <img src="https://media.giphy.com/media/xT9IgNqNGhN38jUqIo/giphy.gif" alt="Retro GIF">
-    </header>
+    <!-- CRT Monitor Frame -->
+    <div class="crt-monitor">
+        <!-- Screen section with scanlines and terminal style -->
+        <div class="screen">
+            <!-- Header like a Bloomberg terminal -->
+            <header>
+                <div>Joshua Haydn CV</div>
+                <div>RETRO FINANCE TERMINAL</div>
+            </header>
 
-    <!-- CV Content -->
-    <div class="cv-container">
-        <div class="section">
-            <h2>About Me</h2>
-            <p>Financial professional with expertise in operations, data analysis, and control management, eager to contribute to the evolving financial landscape.</p>
-        </div>
+            <!-- CV content inside screen -->
+            <div class="content">
+                <h2>About Me</h2>
+                <p>Financial professional with expertise in operations, data analysis, and control management, eager to contribute to the evolving financial landscape.</p>
 
-        <div class="section">
-            <h2>Work Experience</h2>
-            <ul>
-                <li><strong>Manager (Control/Data/Operations)</strong> - FlatexDEGIRO UK LTD, Canary Wharf, London (Jan 2023 - Present)</li>
-                <li>Ensured regulatory compliance, reconciled securities, and implemented consumer duty policies.</li>
-                <li>Analyzed UK market data with Excel/SQL, project management in operations.</li>
+                <h2>Work Experience</h2>
+                <ul>
+                    <li><strong>Manager (Control/Data/Operations)</strong> - FlatexDEGIRO UK LTD, Canary Wharf, London (Jan 2023 - Present)</li>
+                    <li>Ensured regulatory compliance, reconciled securities, and implemented consumer duty policies.</li>
+                    <li>Analyzed UK market data with Excel/SQL, project management in operations.</li>
 
-                <li><strong>Analyst Reconciliation</strong> - FlatexDEGIRO Bank AG, Amsterdam NL (Oct 2021 – Dec 2022)</li>
-                <li>Fixed trade breaks, ran root cause analysis, communicated with clearing partners, automated processes.</li>
+                    <li><strong>Analyst Reconciliation</strong> - FlatexDEGIRO Bank AG, Amsterdam NL (Oct 2021 – Dec 2022)</li>
+                    <li>Fixed trade breaks, ran root cause analysis, communicated with clearing partners, automated processes.</li>
 
-                <li><strong>Operations Control Officer</strong> - FlatexDEGIRO Bank AG, Amsterdam NL</li>
-                <li>Daily reconciliations, processed corporate actions, and fixed issues with SQL.</li>
-            </ul>
-        </div>
+                    <li><strong>Operations Control Officer</strong> - FlatexDEGIRO Bank AG, Amsterdam NL</li>
+                    <li>Daily reconciliations, processed corporate actions, and fixed issues with SQL.</li>
+                </ul>
 
-        <div class="section">
-            <h2>Skills</h2>
-            <ul>
-                <li>Financial Operations</li>
-                <li>Data Analysis (Excel, SQL)</li>
-                <li>Compliance & Risk Management</li>
-                <li>Project Management</li>
-                <li>Python, Automation</li>
-            </ul>
-        </div>
+                <h2>Skills</h2>
+                <ul>
+                    <li>Financial Operations</li>
+                    <li>Data Analysis (Excel, SQL)</li>
+                    <li>Compliance & Risk Management</li>
+                    <li>Project Management</li>
+                    <li>Python, Automation</li>
+                </ul>
 
-        <div class="section">
-            <h2>Education</h2>
-            <p>Bachelor’s Degree in Finance - [Your University] - 2020</p>
+                <h2>Education</h2>
+                <p>Bachelor’s Degree in Finance - [Your University] - 2020</p>
+            </div>
+
+            <!-- Footer with scrolling ticker -->
+            <footer>
+                <div class="ticker">
+                    Bloomberg Terminal Simulation | Contact: your.email@example.com | Available for opportunities in the finance industry
+                </div>
+            </footer>
         </div>
     </div>
-
-    <!-- Footer -->
-    <footer>
-        <p class="blinking">Contact: your.email@example.com</p>
-    </footer>
-
 </body>
 
 </html>
