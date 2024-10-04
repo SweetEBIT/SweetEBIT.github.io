@@ -4,114 +4,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Website</title>
+    <title>Joshua Haydn - Retro CV</title>
 
+    <!-- Include Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
     <style>
-        /* Base styling */
-        body {
-            font-family: Arial, sans-serif;
+        /* Reset some default styling */
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            box-sizing: border-box;
+        }
+
+        /* Y2K-inspired background and font */
+        body {
+            background-color: black; /* Old terminal style */
+            font-family: 'Comic Neue', cursive; /* Y2K fonts */
+            color: #00FF00; /* Retro neon green */
         }
 
         /* Header styling */
         header {
-            background-color: #00549f;
-            color: white;
-            padding: 20px 0;
             text-align: center;
+            padding: 20px;
+            background-color: #282828; /* Dark Bloomberg terminal-like background */
+            color: yellow;
+            font-family: "Papyrus", cursive;
         }
 
         header h1 {
-            margin: 0;
-            font-size: 2.5em;
+            font-size: 3em;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px #FF00FF;
         }
 
-        /* Navigation styling */
-        nav {
-            background-color: #003c71;
-            padding: 10px;
-            text-align: center;
+        /* Add some retro GIF illustrations */
+        header img {
+            height: 100px;
+            margin: 10px;
         }
 
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 1.2em;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        /* Main content styling */
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
+        /* Container for CV content */
+        .cv-container {
             padding: 20px;
-            background-color: white;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #101010;
+            border: 2px solid #00FF00;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
         }
 
-        h2 {
-            color: #00549f;
+        .section {
+            margin-bottom: 20px;
         }
 
-        p {
-            line-height: 1.6;
+        .section h2 {
+            font-size: 2em;
+            text-decoration: underline;
+            color: #FF00FF; /* Bright Y2K colors */
+        }
+
+        .section p, .section ul {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li::before {
+            content: "> ";
+            color: yellow;
         }
 
         /* Footer styling */
         footer {
-            background-color: #00549f;
-            color: white;
             text-align: center;
-            padding: 15px 0;
-            position: relative;
-            bottom: 0;
-            width: 100%;
+            padding: 10px;
+            background-color: #282828;
+            color: #00FF00;
+            font-family: 'Comic Sans MS', cursive;
+            margin-top: 20px;
+        }
+
+        /* Add some animation for retro feel */
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .blinking {
+            animation: blink 1s infinite;
         }
     </style>
 </head>
 
 <body>
-
+    <!-- Retro Header with GIFs -->
     <header>
-        <h1>Welcome to My Personal Website</h1>
+        <h1>Joshua Haydn - CV</h1>
+        <img src="https://media.giphy.com/media/XreQmk7ETCak0/giphy.gif" alt="Retro GIF">
+        <img src="https://media.giphy.com/media/xT9IgNqNGhN38jUqIo/giphy.gif" alt="Retro GIF">
     </header>
 
-    <nav>
-        <a href="#about">About Me</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <div class="container">
-        <section id="about">
+    <!-- CV Content -->
+    <div class="cv-container">
+        <div class="section">
             <h2>About Me</h2>
-            <p>Hi, I'm [Your Name], and this is my personal website! I'm passionate about [your field of expertise], and I love learning and building new things. This site will showcase my projects, experiences, and ways to connect with me.</p>
-        </section>
+            <p>Financial professional with expertise in operations, data analysis, and control management, eager to contribute to the evolving financial landscape.</p>
+        </div>
 
-        <section id="projects">
-            <h2>Projects</h2>
-            <p>Here are some of the projects I've been working on:</p>
+        <div class="section">
+            <h2>Work Experience</h2>
             <ul>
-                <li><strong>Project 1</strong>: Description of the project.</li>
-                <li><strong>Project 2</strong>: Description of the project.</li>
-            </ul>
-        </section>
+                <li><strong>Manager (Control/Data/Operations)</strong> - FlatexDEGIRO UK LTD, Canary Wharf, London (Jan 2023 - Present)</li>
+                <li>Ensured regulatory compliance, reconciled securities, and implemented consumer duty policies.</li>
+                <li>Analyzed UK market data with Excel/SQL, project management in operations.</li>
 
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <p>If you'd like to get in touch, you can email me at: <a href="mailto:your.email@example.com">your.email@example.com</a>.</p>
-        </section>
+                <li><strong>Analyst Reconciliation</strong> - FlatexDEGIRO Bank AG, Amsterdam NL (Oct 2021 – Dec 2022)</li>
+                <li>Fixed trade breaks, ran root cause analysis, communicated with clearing partners, automated processes.</li>
+
+                <li><strong>Operations Control Officer</strong> - FlatexDEGIRO Bank AG, Amsterdam NL</li>
+                <li>Daily reconciliations, processed corporate actions, and fixed issues with SQL.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Skills</h2>
+            <ul>
+                <li>Financial Operations</li>
+                <li>Data Analysis (Excel, SQL)</li>
+                <li>Compliance & Risk Management</li>
+                <li>Project Management</li>
+                <li>Python, Automation</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Education</h2>
+            <p>Bachelor’s Degree in Finance - [Your University] - 2020</p>
+        </div>
     </div>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Your Name - All rights reserved.</p>
+        <p class="blinking">Contact: your.email@example.com</p>
     </footer>
 
 </body>
