@@ -6,19 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joshua Haydn - Retro Bloomberg CV</title>
 
-    <!-- Include Google Fonts -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <style>
-        /* Reset some default styling */
+        /* Reset default styling */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Full-page layout with CRT monitor frame */
+        /* Body and base styling */
         body {
             background-color: black;
             display: flex;
@@ -26,34 +26,36 @@
             align-items: center;
             min-height: 100vh;
             font-family: 'Comic Neue', cursive;
+            color: #00FF00;
         }
 
         /* CRT monitor frame */
         .crt-monitor {
             width: 90%;
             max-width: 1200px;
-            height: 700px;
+            max-height: 90vh;
             background: #333;
             border: 20px solid #444;
             border-radius: 10px;
             padding: 15px;
             box-shadow: 0px 0px 20px rgba(0, 255, 0, 0.5);
-            position: relative;
             overflow: hidden;
-            color: #00FF00;
+            display: flex;
+            flex-direction: column;
+            position: relative;
         }
 
-        /* TV-style screen with scanlines and slight noise */
+        /* Scrollable screen */
         .screen {
             background: #000;
             padding: 20px;
-            position: relative;
-            height: 100%;
-            overflow-y: scroll;
+            flex: 1;
+            overflow-y: auto;
             box-shadow: inset 0px 0px 10px rgba(0, 255, 0, 0.3);
+            position: relative;
         }
 
-        /* Add scanlines effect */
+        /* Scanlines effect */
         .screen::after {
             content: "";
             position: absolute;
@@ -72,7 +74,7 @@
             pointer-events: none;
         }
 
-        /* Monitor header with company name and retro text */
+        /* Monitor header */
         header {
             display: flex;
             justify-content: space-between;
@@ -80,7 +82,7 @@
             padding: 10px;
             color: #FFD700;
             font-family: "Press Start 2P", cursive;
-            font-size: 1.5em;
+            font-size: 1.2em;
             text-transform: uppercase;
         }
 
@@ -142,21 +144,28 @@
             }
         }
 
-        /* Retro blinking text effect */
-        @keyframes blink {
-            0% {
-                opacity: 1;
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            .crt-monitor {
+                width: 100%;
+                max-height: 100vh;
             }
-            50% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
 
-        .blinking {
-            animation: blink 1s infinite;
+            body {
+                flex-direction: column;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            .content {
+                font-size: 1em;
+            }
+
+            footer {
+                font-size: 1em;
+            }
         }
     </style>
 </head>
@@ -164,7 +173,7 @@
 <body>
     <!-- CRT Monitor Frame -->
     <div class="crt-monitor">
-        <!-- Screen section with scanlines and terminal style -->
+        <!-- Screen section with scroll and scanlines -->
         <div class="screen">
             <!-- Header like a Bloomberg terminal -->
             <header>
@@ -203,10 +212,10 @@
                 <p>Bachelor’s Degree in Finance - [Your University] - 2020</p>
             </div>
 
-            <!-- Footer with scrolling ticker -->
+            <!-- Footer with scrolling tickers -->
             <footer>
                 <div class="ticker">
-                    Bloomberg Terminal Simulation | Contact: your.email@example.com | Available for opportunities in the finance industry
+                    ⬆️  AAPL: 150.54  ⬇️  TSLA: 900.20  ⬆️  BTC: 47,000  ⬇️  ETH: 3,200  ⬆️  GBP/USD: 1.38  | Bloomberg Terminal Simulation | Contact: your.email@example.com | Available for opportunities in the finance industry
                 </div>
             </footer>
         </div>
