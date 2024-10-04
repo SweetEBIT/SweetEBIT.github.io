@@ -1,12 +1,119 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Personal Website</title>
+
+    <style>
+        /* Base styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Header styling */
+        header {
+            background-color: #00549f;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        /* Navigation styling */
+        nav {
+            background-color: #003c71;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main content styling */
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #00549f;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #00549f;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Welcome to My Personal Website</h1>
-    <p>This is my very first website!</p>
+
+    <header>
+        <h1>Welcome to My Personal Website</h1>
+    </header>
+
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hi, I'm [Your Name], and this is my personal website! I'm passionate about [your field of expertise], and I love learning and building new things. This site will showcase my projects, experiences, and ways to connect with me.</p>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <p>Here are some of the projects I've been working on:</p>
+            <ul>
+                <li><strong>Project 1</strong>: Description of the project.</li>
+                <li><strong>Project 2</strong>: Description of the project.</li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p>If you'd like to get in touch, you can email me at: <a href="mailto:your.email@example.com">your.email@example.com</a>.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Your Name - All rights reserved.</p>
+    </footer>
+
 </body>
+
 </html>
